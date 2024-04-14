@@ -1,5 +1,8 @@
+import { unstable_noStore as noStore } from "next/cache";
+
 const GET = async () => {
-    const response = await fetch('https://timeapi.io/api/Time/current/zone?timeZone=Asia/Kolkata');
+    noStore();
+    const response = await fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata');
     const data = await response.json();
     return Response.json(data);
 }
